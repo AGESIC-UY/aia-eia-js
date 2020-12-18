@@ -24,5 +24,12 @@ echo "---> Building application from source..."
 echo "---> Installing depedencies from file package.json"
 npm install
 
+echo "--> Executing unit test"
+npm run-script test:unit
+
 echo "---> Building the application"
 npm run build
+
+echo "---> Changing permission in APP_ROOT"
+chgrp -R 0 $APP_ROOT
+chmod -R g=u $APP_ROOT

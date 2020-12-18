@@ -86,7 +86,7 @@ objects:
   spec:
     resources:
       limits:
-        memory: 2048Mi
+        memory: 2500Mi
         cpu: 1
     source:
       type: Git
