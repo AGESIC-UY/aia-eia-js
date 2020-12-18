@@ -24,6 +24,9 @@ echo "---> Building application from source..."
 echo "---> Installing depedencies from file package.json"
 npm install
 
+echo "--> Executing unit test"
+npm run-script test:unit
+
 echo "---> Building the application"
 npm run build
 
