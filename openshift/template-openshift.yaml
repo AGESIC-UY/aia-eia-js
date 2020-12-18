@@ -125,6 +125,10 @@ objects:
           memory: 500Mi
           cpu: 500m
     template:
+      metadata:
+        labels:
+          app: ${APP_NAME}-app
+          deploymentconfig: ${APP_NAME}-app
       spec:
         containers:
         - image: ${APP_NAME}-app

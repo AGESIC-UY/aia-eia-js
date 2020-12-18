@@ -8,8 +8,6 @@ LABEL io.k8s.display-name="AIA" \
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i" \
       maintainer="Franklin Gómez Otero <fgomezotero@gmail.com>"
 
-ENV NODE_ENV=production
-
 # TODO: Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image
 # sets io.openshift.s2i.scripts-url label that way, or update that label
 COPY ./s2i/bin/ /usr/libexec/s2i
