@@ -26,3 +26,7 @@ npm install
 
 echo "---> Building the application"
 npm run build
+
+echo "---> Changing permission in APP_ROOT"
+chgrp -R 0 $APP_ROOT
+chmod -R g=u $APP_ROOT

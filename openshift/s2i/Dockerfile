@@ -14,12 +14,14 @@ COPY ./s2i/bin/ /usr/libexec/s2i
 
 USER root
 
+RUN adduser -u 10001 -G root -b $APP_ROOT aia
+
 # TODO: Change permissions for run on Openshift
-RUN chgrp -R 0 $APP_ROOT && \
+RUN chown -R 10001:0 $APP_ROOT && \
     chmod -R g=u $APP_ROOT && \
     chmod g=u /etc/passwd
 
-USER 1001
+USER 10001
 
 # TODO: Set the default CMD for the image
 CMD ["/usr/libexec/s2i/usage"]
