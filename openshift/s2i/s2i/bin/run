@@ -1,0 +1,20 @@
+#!/bin/bash -e
+#
+# S2I run script for the 'aia-eia-js' image.
+# The run script executes the server that runs your application.
+#
+# For more information see the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+
+# Adding the user dynamically to /etc/passwd 
+
+if ! whoami &> /dev/null; then
+  if [ -w /etc/passwd ]; then
+    echo "aia-default:x:$(id -u):0:aia user,,,:$APP_ROOT:/sbin/nologin" >> /etc/passwd
+  fi
+fi
+
+# Execute the application
+exec npm run serve
