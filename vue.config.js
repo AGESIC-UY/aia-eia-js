@@ -8,6 +8,9 @@ module.exports = {
   configureWebpack: {
     devtool: "source-map"
   },
+  devServer: {
+    disableHostCheck: true
+  },
 
   transpileDependencies: ["vuex-persist", "vue-i18n"]
 };
